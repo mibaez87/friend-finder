@@ -1,26 +1,18 @@
-var Friends = require("../data/friends.js");
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
+var friends = require("../data/friends.js");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+module.exports = function (app) {
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+    // Route to display JSON of all possible friends
+    app.get("/api/friends", function (req, res) {
+        res.json(friends);
+    });
 
-var friends = [];
+    // Route to handle incoming survey results & compatability logic
+    // app.post("/api/friends", function (req, res) {
 
-// Route to display JSON of all possible friends
-app.get("/api/friends", function (req, res) {
-    res.json(friends);
-});
+    // });
 
-// Route to handle incoming survey results & compatability logic
-app.post("/api/friends", function (req, res) {
-    
-});
-
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
-});
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
+};
