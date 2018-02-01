@@ -8,7 +8,7 @@ module.exports = function (app) {
     });
 
     // Route to handle incoming survey results & compatability logic
-    // app.post("/api/friends", function (req, res) {
-
-    // });
+    app.post("/api/friends", function (req, res) {
+        friends.push(req.body);
+    });
 };
