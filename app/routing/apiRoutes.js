@@ -11,8 +11,4 @@ module.exports = function (app) {
     // app.post("/api/friends", function (req, res) {
 
     // });
-
-    app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
-    });
 };
